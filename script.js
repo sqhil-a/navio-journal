@@ -1,92 +1,52 @@
-const prefersReducedMotion = window.matchMedia(
-  "(prefers-reduced-motion: reduce)",
-).matches;
+document.documentElement.classList.add("motion-ready");
 
-const cursorGlow = document.querySelector(".cursor-glow");
-const scrollProgress = document.querySelector(".scroll-progress");
+document.querySelectorAll("[data-word-reveal]").forEach((heading) => {
+  const text = heading.textContent.trim();
+  heading.setAttribute("aria-label", text);
+  heading.textContent = "";
+  text.split(/\s+/).forEach((word, index, words) => {
+    const span = document.createElement("span");
+    span.className = "word";
+    span.style.setProperty("--i", index);
+    span.setAttribute("aria-hidden", "true");
+    span.textContent = word;
+    heading.append(span, index < words.length - 1 ? " " : "");
+  });
+});
 
-if (!prefersReducedMotion) {
-  let glowX = window.innerWidth / 2;
-  let glowY = window.innerHeight / 2;
-  let currentGlowX = glowX;
-  let currentGlowY = glowY;
-
-  function animate() {
-    currentGlowX += (glowX - currentGlowX) * 0.08;
-    currentGlowY += (glowY - currentGlowY) * 0.08;
-
-    if (cursorGlow) {
-      cursorGlow.style.transform = `translate3d(${currentGlowX - 230}px, ${
-        currentGlowY - 230
-      }px, 0)`;
-    }
-
-    requestAnimationFrame(animate);
-  }
-
-  window.addEventListener(
-    "pointermove",
-    (event) => {
-      glowX = event.clientX;
-      glowY = event.clientY;
-    },
-    { passive: true },
-  );
-
-  window.addEventListener(
-    "pointerleave",
-    () => {
-      if (cursorGlow) cursorGlow.style.opacity = "0";
-    },
-    { passive: true },
-  );
-
-  window.addEventListener(
-    "pointerenter",
-    () => {
-      if (cursorGlow) cursorGlow.style.opacity = "0.8";
-    },
-    { passive: true },
-  );
-
-  window.addEventListener(
-    "scroll",
-    () => {
-      const scrollTop = window.scrollY;
-      const pageHeight = document.documentElement.scrollHeight - window.innerHeight;
-      const progress = pageHeight <= 0 ? 0 : scrollTop / pageHeight;
-
-      if (scrollProgress) {
-        scrollProgress.style.transform = `scaleX(${progress})`;
-      }
-    },
-    { passive: true },
-  );
-
-  animate();
-
-  const observer = new IntersectionObserver(
-    (entries) => {
-      entries.forEach((entry, index) => {
-        if (!entry.isIntersecting) return;
-
-        entry.target.style.transitionDelay = `${index * 70}ms`;
-        entry.target.classList.add("is-visible");
-        observer.unobserve(entry.target);
-      });
-    },
-    {
-      threshold: 0.16,
-      rootMargin: "0px 0px -70px 0px",
-    },
-  );
-
-  document
-    .querySelectorAll(
-      ".section-head, .article-card, .topic-grid article, .subscribe-card",
-    )
-    .forEach((el) => {
-      el.classList.add("reveal");
-      observer.observe(el);
+const reveals = document.querySelectorAll(".reveal");
+if ("IntersectionObserver" in window) {
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (!entry.isIntersecting) return;
+      entry.target.classList.add("visible");
+      observer.unobserve(entry.target);
     });
+  }, { threshold: 0.08, rootMargin: "0px 0px -30px" });
+  reveals.forEach((element) => observer.observe(element));
+} else {
+  reveals.forEach((element) => element.classList.add("visible"));
+}
+
+const menu = document.querySelector(".menu-button");
+const nav = document.querySelector(".nav");
+menu?.addEventListener("click", () => {
+  const open = nav.classList.toggle("open");
+  menu.setAttribute("aria-expanded", String(open));
+  menu.textContent = open ? "Close" : "Menu";
+});
+nav?.querySelectorAll("a").forEach((link) => link.addEventListener("click", () => {
+  nav.classList.remove("open");
+  menu?.setAttribute("aria-expanded", "false");
+  if (menu) menu.textContent = "Menu";
+}));
+
+const progress = document.querySelector(".progress");
+if (progress) {
+  const update = () => {
+    const height = document.documentElement.scrollHeight - innerHeight;
+    progress.style.transform = `scaleX(${height > 0 ? scrollY / height : 0})`;
+  };
+  addEventListener("scroll", update, { passive: true });
+  update();
 }

@@ -1,0 +1,5 @@
+{
+  "name": "navio-journal",
+  "private": true,
+  "scripts": { "check": "node scripts/check-site.mjs" }
+}
