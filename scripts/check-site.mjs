@@ -2,7 +2,7 @@ import { readFile, access } from "node:fs/promises";
 import { resolve, dirname } from "node:path";
 
 const root = resolve(import.meta.dirname, "..");
-const pages = ["index.html", "404.html", "articles/explore-careers-before-choosing/index.html", "articles/first-next-step/index.html", "articles/better-career-conversations/index.html", "articles/support-without-pressure/index.html"];
+const pages = ["index.html", "404.html"];
 const problems = [];
 
 for (const page of pages) {
@@ -11,7 +11,7 @@ for (const page of pages) {
   if (!/<title>.+<\/title>/.test(html)) problems.push(`${page}: missing title`);
   if (page !== "404.html" && !/rel="canonical"/.test(html)) problems.push(`${page}: missing canonical`);
   if ((html.match(/<h1[ >]/g) || []).length !== 1) problems.push(`${page}: expected exactly one h1`);
-  if (/coming soon|placeholder|reserved photo/i.test(html)) problems.push(`${page}: placeholder copy found`);
+  if (/placeholder|reserved photo/i.test(html)) problems.push(`${page}: placeholder copy found`);
   for (const match of html.matchAll(/(?:src|href)="([^"#]+)"/g)) {
     const link = match[1];
     if (/^(https?:|mailto:|\/)/.test(link)) continue;

@@ -1,6 +1,6 @@
 # Navio Journal
 
-The public editorial site for Navio Pathways. It is a dependency-free static site deployed through GitHub Pages at `journal.naviopathways.com`.
+The coming-soon concept site for the Navio Pathways youth research publication. It is a dependency-free static site deployed through GitHub Pages at `journal.naviopathways.com`.
 
 ## Local preview
 
