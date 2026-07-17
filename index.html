@@ -23,61 +23,52 @@
   <header class="site-header">
     <div class="header-inner">
       <a class="brand" href="/" aria-label="Navio Journal home"><img src="assets/logo.png" alt="Navio"></a>
-      <button class="menu-button" type="button" aria-expanded="false" aria-controls="primary-nav">Menu</button>
-      <nav class="nav" id="primary-nav" aria-label="Primary">
-        <a href="#concept">The concept</a>
-        <a href="#mission">Research and mission</a>
-        <a href="#approach">Our approach</a>
-        <a href="https://naviopathways.com/">Main site</a>
-      </nav>
+      <nav class="desktop-nav" aria-label="Primary navigation"><a href="#concept">The concept</a><a href="#mission">Research and mission</a><a href="#approach">Our approach</a></nav>
+      <div class="header-actions"><a class="button button-small button-primary desktop-cta" href="https://naviopathways.com/">Main site</a><button class="menu-toggle" type="button" aria-expanded="false" aria-controls="mobile-menu"><span class="sr-only">Open navigation menu</span><span aria-hidden="true"></span><span aria-hidden="true"></span><span aria-hidden="true"></span></button></div>
     </div>
+    <div class="mobile-menu" id="mobile-menu" aria-hidden="true"><nav aria-label="Mobile navigation"><a href="#concept">The concept</a><a href="#mission">Research and mission</a><a href="#approach">Our approach</a><a href="https://naviopathways.com/">Main site</a></nav></div>
   </header>
 
   <main id="content">
-    <section class="hero journal-coming-soon">
-      <div>
+    <section class="hero">
+      <div class="container hero-grid"><div class="hero-copy">
         <p class="eyebrow">Navio Journal · Coming soon</p>
         <h1 data-word-reveal>Research for the future young people are entering.</h1>
         <p class="lead">Navio Journal will be a youth research publication where students investigate the changes shaping education, careers, and community, then turn what they learn into clear guidance for other young people.</p>
-        <div class="hero-actions"><a class="button" href="#concept">Understand the Journal <span aria-hidden="true">↓</span></a><a class="button secondary" href="https://naviopathways.com/">Visit Navio Pathways</a></div>
-      </div>
-      <aside class="hero-card reveal" aria-label="Publication status">
-        <img class="star" src="assets/Star.png" alt="">
-        <p class="eyebrow">Publication status</p>
-        <strong>Coming soon.</strong>
-        <p>The Journal is being developed. No papers or articles have been published yet.</p>
-      </aside>
+        <div class="button-row"><a class="button button-primary" href="#concept">Understand the Journal <span aria-hidden="true">↓</span></a><a class="button button-secondary" href="https://naviopathways.com/">Visit Navio Pathways</a></div>
+        <p class="hero-note">The Journal is being developed. No papers or articles have been published yet.</p>
+      </div><div class="hero-star reveal" aria-hidden="true"><img src="assets/Star.png" alt=""></div></div>
     </section>
 
     <section class="section" id="concept">
-      <div class="concept-layout reveal">
+      <div class="container split-intro reveal">
         <div><p class="eyebrow">The concept</p><h2 data-word-reveal>Young people researching the questions that shape young lives.</h2></div>
-        <div class="concept-copy"><p>Students are often asked to prepare for a future they have had little opportunity to investigate. Navio Journal will give student researchers a structured way to study that future and share what they discover.</p><p>The Director of Research will find and support student researchers who want to submit papers and articles. Their work will examine real changes affecting young people, using credible sources, clear reasoning, and language that students, families, and educators can understand.</p><p>The Journal will not tell every reader which path to choose. It will help them ask better questions, understand the evidence, and make more informed decisions.</p></div>
+        <div class="copy"><p>Students are often asked to prepare for a future they have had little opportunity to investigate. Navio Journal will give student researchers a structured way to study that future and share what they discover.</p><p>The Director of Research will find and support student researchers who want to submit papers and articles. Their work will examine real changes affecting young people, using credible sources, clear reasoning, and language that students, families, and educators can understand.</p><p>The Journal will not tell every reader which path to choose. It will help them ask better questions, understand the evidence, and make more informed decisions.</p></div>
       </div>
     </section>
 
-    <section class="section" id="mission">
-      <div class="section-head reveal"><p class="eyebrow">Research and Navio's mission</p><h2 data-word-reveal>Understanding change is part of finding direction.</h2></div>
-      <div class="mission-flow reveal" aria-label="How research supports Navio Pathways' mission">
-        <div><span>01</span><strong>Investigate change</strong><p>Student researchers examine forces reshaping education, work, technology, and community.</p></div>
-        <div><span>02</span><strong>Make it understandable</strong><p>The Journal turns research into writing that young people can use, question, and discuss.</p></div>
-        <div><span>03</span><strong>Connect it to real choices</strong><p>Readers gain context for courses, careers, skills, opportunities, and their next steps.</p></div>
-        <div><span>04</span><strong>Build informed direction</strong><p>Better evidence helps youth approach the future with curiosity instead of guesswork.</p></div>
-      </div>
-      <blockquote class="research-question reveal"><p>“How will AI affect my job?”</p><footer>This is the kind of future-facing question the Journal is being created to investigate, not answer with a slogan.</footer></blockquote>
+    <section class="section section-tint" id="mission"><div class="container">
+      <div class="section-heading reveal"><p class="eyebrow">Research and Navio's mission</p><h2 data-word-reveal>Understanding change is part of finding direction.</h2></div>
+      <ol class="steps reveal" aria-label="How research supports Navio Pathways' mission">
+        <li><span>01</span><strong>Investigate change</strong><p>Student researchers examine forces reshaping education, work, technology, and community.</p></li>
+        <li><span>02</span><strong>Make it understandable</strong><p>The Journal turns research into writing that young people can use, question, and discuss.</p></li>
+        <li><span>03</span><strong>Connect it to real choices</strong><p>Readers gain context for courses, careers, skills, opportunities, and their next steps.</p></li>
+        <li><span>04</span><strong>Build informed direction</strong><p>Better evidence helps youth approach the future with curiosity instead of guesswork.</p></li>
+      </ol>
+      <blockquote class="research-question reveal"><p>“How will AI affect my job?”</p><footer>This is the kind of future-facing question the Journal is being created to investigate, not answer with a slogan.</footer></blockquote></div>
     </section>
 
-    <section class="section" id="approach">
+    <section class="section" id="approach"><div class="container">
       <div class="trust-panel reveal">
         <div><p class="eyebrow">Our planned approach</p><h2 data-word-reveal>Student-led, evidence-minded, and useful.</h2><p>Navio Journal will give youth a serious place to contribute research while helping other young people understand issues that may influence their futures.</p></div>
         <div><ul class="trust-list"><li><strong>Student authorship</strong><br>Students will research and write the work submitted for consideration.</li><li><strong>Research leadership</strong><br>The Director of Research will coordinate student researchers and the submission process.</li><li><strong>Credible foundations</strong><br>Published work will be expected to identify sources and distinguish evidence from opinion.</li><li><strong>Accessible communication</strong><br>Research should be readable and useful for students, parents, teachers, and counsellors.</li><li><strong>Honest status</strong><br>No article, author, or result will be presented before it is real and ready.</li></ul></div>
-      </div>
+      </div></div>
     </section>
 
-    <section class="section"><div class="closing-note reveal"><p class="eyebrow">Coming soon</p><h2 data-word-reveal>The Journal begins with the students who will shape it.</h2><p>Research opportunities, submission guidance, and publication standards will be shared when they are confirmed. Until then, this page explains the purpose behind the initiative.</p><a class="button" href="mailto:hello@naviopathways.com?subject=Navio%20Journal">Contact Navio about the Journal</a></div></section>
+    <section class="final-cta"><div class="container reveal"><p class="eyebrow">Coming soon</p><h2 data-word-reveal>The Journal begins with the students who will shape it.</h2><p>Research opportunities, submission guidance, and publication standards will be shared when they are confirmed. Until then, this page explains the purpose behind the initiative.</p><div class="button-row"><a class="button button-primary" href="mailto:hello@naviopathways.com?subject=Navio%20Journal">Contact Navio about the Journal</a></div></div></section>
   </main>
 
-  <footer class="site-footer"><div class="footer-inner"><div><img class="footer-logo" src="assets/logo.png" alt="Navio"><p>Navio Journal is a coming-soon youth research initiative from Navio Pathways.</p></div><div class="footer-links"><strong>Navio Pathways</strong><a href="https://naviopathways.com/">Main site</a><a href="https://naviopathways.com/about/">About</a><a href="https://naviopathways.com/get-involved/">Get involved</a></div><div class="footer-links"><strong>Connect</strong><a href="mailto:hello@naviopathways.com">Email</a><a href="https://www.instagram.com/naviopathways/">Instagram</a><a href="https://www.linkedin.com/company/navio-pathways/">LinkedIn</a></div></div><div class="legal">© 2026 Navio Pathways. Ontario incorporated not-for-profit, Corporation Number 1001662092.</div></footer>
+  <footer class="site-footer"><div class="footer-grid"><div class="footer-intro"><a class="footer-brand" href="/"><img src="assets/logo.png" alt="Navio"></a><p>Navio Journal is a coming-soon youth research initiative from Navio Pathways.</p></div><div class="footer-links"><strong>Navio Pathways</strong><a href="https://naviopathways.com/">Main site</a><a href="https://naviopathways.com/about/">About</a><a href="https://naviopathways.com/get-involved/">Get involved</a></div><div class="footer-links"><strong>Connect</strong><a href="mailto:hello@naviopathways.com">Email</a><a href="https://www.instagram.com/naviopathways/">Instagram</a><a href="https://www.linkedin.com/company/navio-pathways/">LinkedIn</a></div></div><div class="footer-bottom">© 2026 Navio Pathways. Ontario incorporated not-for-profit, Corporation Number 1001662092.</div></footer>
   <script src="script.js"></script>
 </body>
 </html>
